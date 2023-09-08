@@ -68,4 +68,10 @@ class Student extends Model implements HasMedia
 
         return $file;
     }
+
+    public function getFallbackPhoto()
+    {
+        
+        return  ('/storage/') . $this->roll_number . '.jpg';
+    }
 }

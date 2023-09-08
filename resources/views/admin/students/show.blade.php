@@ -56,6 +56,8 @@
                                 <a href="{{ $student->photo->getUrl() }}" target="_blank" style="display: inline-block">
                                     <img src="{{ $student->photo->getUrl('thumb') }}">
                                 </a>
+                            @else
+                                <img src= "{{  $student->getFallbackPhoto()}}" width='50'>
                             @endif
                         </td>
                     </tr>
