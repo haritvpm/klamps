@@ -8,6 +8,8 @@ trait MediaUploadingTrait
 {
     public function storeMedia(Request $request)
     {
+
+       // dd($request);
         // Validates file size
         if (request()->has('size')) {
             $this->validate(request(), [
@@ -37,7 +39,7 @@ trait MediaUploadingTrait
         $file = $request->file('file');
 
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
-
+      
         $file->move($path, $name);
 
         return response()->json([

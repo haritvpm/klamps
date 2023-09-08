@@ -89,7 +89,7 @@
     Dropzone.options.photoDropzone = {
     url: '{{ route('admin.students.storeMedia') }}',
     maxFilesize: 1, // MB
-    acceptedFiles: '.jpeg,.jpg,.png,.gif',
+    acceptedFiles: '.jpg',
     maxFiles: 1,
     addRemoveLinks: true,
     headers: {

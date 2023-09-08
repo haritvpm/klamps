@@ -12,7 +12,7 @@ class CreateStudentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('roll_number')->unique();
             $table->string('name');
-            $table->string('fee_paid')->nullable();
+            $table->string('fee_paid');
             $table->string('centre');
             $table->timestamps();
         });

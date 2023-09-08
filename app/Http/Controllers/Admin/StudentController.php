@@ -39,6 +39,7 @@ class StudentController extends Controller
         $student = Student::create($request->all());
 
         if ($request->input('photo', false)) {
+            
             $student->addMedia(storage_path('tmp/uploads/' . basename($request->input('photo'))))->toMediaCollection('photo');
         }
 

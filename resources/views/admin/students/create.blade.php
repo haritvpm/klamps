@@ -30,7 +30,7 @@
                 <span class="help-block">{{ trans('cruds.student.fields.name_helper') }}</span>
             </div>
             <div class="form-group">
-                <label>{{ trans('cruds.student.fields.fee_paid') }}</label>
+                <label class="required" for="fee_paid">{{ trans('cruds.student.fields.fee_paid') }}</label>
                 <select class="form-control {{ $errors->has('fee_paid') ? 'is-invalid' : '' }}" name="fee_paid" id="fee_paid">
                     <option value disabled {{ old('fee_paid', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                     @foreach(App\Models\Student::FEE_PAID_SELECT as $key => $label)
@@ -88,7 +88,7 @@
     Dropzone.options.photoDropzone = {
     url: '{{ route('admin.students.storeMedia') }}',
     maxFilesize: 1, // MB
-    acceptedFiles: '.jpeg,.jpg,.png,.gif',
+    acceptedFiles: '.jpg',
     maxFiles: 1,
     addRemoveLinks: true,
     headers: {

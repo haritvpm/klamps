@@ -39,6 +39,13 @@ trait CsvImportTrait
                 }
 
                 if (count($tmp) > 0) {
+
+                    //to make sure rollnumber has no space. added by hari
+                    if(  isset($tmp['roll_number'])){
+                        $tmp['roll_number'] = str_replace(' ', '', $tmp['roll_number']);
+                    }
+
+
                     $insert[] = $tmp;
                 }
             }
@@ -46,6 +53,7 @@ trait CsvImportTrait
             $for_insert = array_chunk($insert, 100);
 
             foreach ($for_insert as $insert_item) {
+                
                 $model::insert($insert_item);
             }
 

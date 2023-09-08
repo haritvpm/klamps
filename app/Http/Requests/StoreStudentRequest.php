@@ -22,7 +22,7 @@ class StoreStudentRequest extends FormRequest
                 'min:11',
                 'required',
                 'unique:students',
-                'regex:/\s/'
+              
                 
             ],
             'name' => [
@@ -33,6 +33,9 @@ class StoreStudentRequest extends FormRequest
                 'required',
             ],
             'centre' => [
+                'required',
+            ],
+            'fee_paid' => [
                 'required',
             ],
         ];
