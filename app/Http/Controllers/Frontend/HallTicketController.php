@@ -10,7 +10,7 @@ use App\Models\Student;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-
+use PDF;
 class HallTicketController extends Controller
 {
     public function index()
@@ -43,7 +43,14 @@ class HallTicketController extends Controller
 
        }
 
-       return view('frontend.hallTickets.show', compact('hallTicket'));
+      // dd( public_path("storage/images/apple.png") );
+       //dd($hallTicket->getPhoto());
+
+       $pdf = PDF::loadView('frontend.hallTickets.show', compact('hallTicket'));
+        
+          
+         return $pdf->download('hallticket2023.pdf');
+//       return view('frontend.hallTickets.show', compact('hallTicket'));
     }
 
     public function show(HallTicket $hallTicket)

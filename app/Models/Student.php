@@ -73,6 +73,14 @@ class Student extends Model implements HasMedia
     {
         return  ('/storage/') . $this->roll_number . '.jpg';
     }
+    public function getPhoto()
+    {
+        $photo = $this->photo->getUrl('');
+        //"http://localhost:8000/storage/1/64fa8bc97e72c_6a9588d71b5a6c35a150093100d8e4c2.jpg"
+        //find storage and get part after that by removing url
+        $str = substr($photo, strpos($photo, 'storage')-1);
+        return  $str;
+    }
     public function getYear()
     {
         return  substr($this->roll_number,0,4) ;
