@@ -61,15 +61,22 @@ body {
   color: #333;
   background-color: #fff;
 }
-table, th, td {
-   border: 1px solid; 
 
+.bordered-table {
+  
+    border: 1px solid; 
+    border-collapse: collapse;
+    
+}
+th, td {
+  padding: 5px;
 }
 
 table {
   width: 100%;
-  border-collapse: collapse;
+  
 }
+
 
     </style>
 
@@ -101,7 +108,7 @@ table {
                         <tbody>
                             
                             <tr>
-                                <td style="text-align:left;width: 5%" >
+                                <td style="text-align:left;width: 5%;" >
                                     <b>Year</b><br>
                                     <b>Batch</b>
                                 </td>
@@ -112,10 +119,10 @@ table {
                                 <td style="text-align:right;" >
                                     <div >
                                                 @if($hallTicket->photo)
-                                                    <img src=".{{ $hallTicket->getPhoto('') }}"  width='90px' style='border:5px solid #000000; padding:3px; margin:5px'>
+                                                    <img src=".{{ $hallTicket->getPhoto('') }}"  width='80px' style='border:2px solid #000000; padding:3px; margin:5px'>
                                                     
                                                 @else
-                                                    <img src= ".{{  $hallTicket->getFallbackPhoto()}}" width='90px' style='border:5px solid #000000; padding:3px; margin:5px'>
+                                                    <img src= ".{{  $hallTicket->getFallbackPhoto()}}" width='80px' style='border:2px solid #000000; padding:3px; margin:5px'>
                                                 @endif
                                     </div>
                                 </td>
@@ -125,28 +132,27 @@ table {
             </table>
         </div>
 
-  
             
 
     <div>
         <div>
                     <div class="mx-5 mt-5">
-                    <table >
+                    <table class="bordered-table" >
                         <tbody>
                             
                             <tr>
-                                <th style="text-align:left;width: 25%" >
+                                <th style="text-align:left;width: 25%;border: 1px solid;" >
                                     {{ trans('cruds.hallTicket.fields.roll_number') }}
                                 </th>
-                                <td class="text-monospace ">
+                                <td class="text-monospace " style="border: 1px solid;" >
                                     &nbsp;{{ $hallTicket->roll_number }}
                                 </td>
                             </tr>
                             <tr>
-                                <th style="text-align:left;width: 25%">
+                                <th style="text-align:left;width: 25%;border: 1px solid;">
                                     {{ trans('cruds.student.fields.name') }}
                                 </th>
-                                <td class="text-monospace ">
+                                <td class="text-monospace " style="border: 1px solid;">
                                     &nbsp;{{ $hallTicket->name }}
                                 </td>
                             </tr>
@@ -163,17 +169,17 @@ table {
     <div >
         <div >
                     <div >
-                    <table >
+                    <table  class="bordered-table">
                         <tbody>
                             
                             <tr>
-                                <th  style="text-align:left;width: 25%" rowspan="2">
+                                <th  style="text-align:left;width: 25%;border: 1px solid;" rowspan="2">
                                     Examination
                                 </th>
-                                <td style="width: 15%">
+                                <td style="width: 15%;border: 1px solid;">
                                     Date
                                 </td>
-                                <td >
+                                <td style="border: 1px solid;">
                                     30.09.2023  and  01.09.2023  
                                 </td>
                             </tr>
@@ -182,16 +188,16 @@ table {
                                 <td style="width: 15%">
                                     Time
                                 </td>
-                                <td >
+                                <td style="border: 1px solid;">
                                 10.00 am – 12.30 pm   and   2.00 pm – 4.30 pm 
                                 </td>
                             </tr>
 
                             <tr>
-                                <th style="text-align:left;" colspan="2">
-                                    Center Of Examination
+                                <th style="text-align:left;border: 1px solid;" colspan="2">
+                                    Center of Examination
                                 </th>
-                                <td >
+                                <td style="border: 1px solid;">
                                     {{ $hallTicket->centre }}
                                 </td>
                             </tr>
@@ -204,9 +210,9 @@ table {
     </div>
 
 
-    <div class="row d-flex justify-content-between text-md">
-        <div class="col-md-5 my-auto ml-5">
-        <b>Date of Issue</b>  : {{ date('d/m/Y') }}
+    <div >
+        <div >
+        <br><b>Date of Issue</b>  : {{ date('d/m/Y') }}
         </div>
         <div style="text-align:right;">
             <div class="text-right font-weight-bold">
