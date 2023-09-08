@@ -62,9 +62,15 @@ body {
   background-color: #fff;
 }
 table, th, td {
-  border: 1px solid;
-  width:100%;
+   border: 1px solid; 
+
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
     </style>
 
 </head>
@@ -80,10 +86,10 @@ table, th, td {
                 <div class="center">
                     <img src= "./klamps_logo600w.jpg" width = '200px' >
 
-                    <h4 class="text-center font-weight-light">KERALA LEGISLATIVE  ASSEMBLY MEDIA & PARLIAMENTARY STUDY CENTRE</h4>
-                    <h4 class="text-center font-weight-light">CERTIFICATE COURSE IN PARLIAMENTARY PRACTICE AND PROCEDURE</h4>
-                    <h4 class="text-center font-weight-light">EXAMINATION  2023</h4>
-                    <h5 class="text-center font-weight-bold">HALL TICKET</h5>
+                    <h2 class="text-center font-weight-light">KERALA LEGISLATIVE  ASSEMBLY MEDIA & PARLIAMENTARY STUDY CENTRE</h2>
+                    <h2 class="text-center font-weight-light">CERTIFICATE COURSE IN PARLIAMENTARY PRACTICE AND PROCEDURE</h2>
+                    <h2 class="text-center font-weight-light">EXAMINATION  2023</h2>
+                    <h3 class="text-center font-weight-bold">HALL TICKET</h3>
                     
                 </div>
 
@@ -161,7 +167,7 @@ table, th, td {
                         <tbody>
                             
                             <tr>
-                                <th  style="width: 25%" rowspan="2">
+                                <th  style="text-align:left;width: 25%" rowspan="2">
                                     Examination
                                 </th>
                                 <td style="width: 15%">
