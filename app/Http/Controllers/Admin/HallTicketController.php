@@ -32,7 +32,34 @@ class HallTicketController extends Controller
 
     public function store(StoreHallTicketRequest $request)
     {
-        $hallTicket = HallTicket::create($request->all());
+        $student = Student::where ( 'roll_number', $request->roll_number)->first();
+    
+       if(!$student){
+        return redirect()->back()->withInput()->withErrors(['Invalid enrolment number!']);  
+       }
+
+       if( $student->fee_paid != 'y' ){
+        return redirect()->back()->withInput()->withErrors(['Fee not paid!']);  
+
+       }
+
+      // dd( public_path("storage/images/apple.png") );
+       //dd($student->getPhoto());
+
+
+       $hallTicket = HallTicket::where('roll_number', $request->roll_number)->first();
+
+       if($hallTicket){
+            $hallTicket->update(['count' => $hallTicket->count+1 ]);
+       }
+       else {
+            $hallTicket = HallTicket::create( [
+                'roll_number' =>  $request->roll_number,
+                'count' => 1,
+            ]
+            );
+       }
+
 
         return redirect()->route('admin.hall-tickets.index');
     }

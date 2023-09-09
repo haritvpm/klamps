@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            @can('hall_ticket_create')
+          <!--   @can('hall_ticket_create')
                 <div style="margin-bottom: 10px;" class="row">
                     <div class="col-lg-12">
                         <a class="btn btn-success" href="{{ route('frontend.hall-tickets.create') }}">
@@ -11,7 +11,7 @@
                         </a>
                     </div>
                 </div>
-            @endcan
+            @endcan -->
             <div class="card">
                 <div class="card-header">
                     {{ trans('cruds.hallTicket.title_singular') }} {{ trans('global.list') }}
