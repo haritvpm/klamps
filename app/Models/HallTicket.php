@@ -20,6 +20,7 @@ class HallTicket extends Model
 
     protected $fillable = [
         'roll_number',
+        'count',
         'created_at',
         'updated_at',
         'deleted_at',

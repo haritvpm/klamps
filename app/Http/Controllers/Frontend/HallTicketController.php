@@ -31,33 +31,48 @@ class HallTicketController extends Controller
 
     public function store(StoreHallTicketRequest $request)
     {
-       // $hallTicket = HallTicket::create($request->all());
-       $hallTicket = Student::where ( 'roll_number', $request->roll_number)->first();
+       
+       $student = Student::where ( 'roll_number', $request->roll_number)->first();
     
-       if(!$hallTicket){
+       if(!$student){
         return redirect()->back()->withInput()->withErrors(['Invalid enrolment number!']);  
        }
 
-       if( $hallTicket->fee_paid != 'y' ){
+       if( $student->fee_paid != 'y' ){
         return redirect()->back()->withInput()->withErrors(['Fee not paid!']);  
 
        }
 
       // dd( public_path("storage/images/apple.png") );
-       //dd($hallTicket->getPhoto());
+       //dd($student->getPhoto());
 
-       $pdf = PDF::loadView('frontend.hallTickets.show', compact('hallTicket'));
-        
-          
-         return $pdf->download('hallticket2023.pdf');
-//       return view('frontend.hallTickets.show', compact('hallTicket'));
+
+       $hallTicket = HallTicket::where('roll_number', $request->roll_number)->first();
+
+       if($hallTicket){
+            $hallTicket->update(['count' => $hallTicket->count+1 ]);
+       }
+       else {
+            $hallTicket = HallTicket::create( [
+                'roll_number' =>  $request->roll_number,
+                'count' => 1,
+            ]
+            );
+       }
+
+
+       $pdf = PDF::loadView('frontend.hallTickets.show', compact('student'));
+                 
+       return $pdf->download('hallticket2023.pdf');
+//       return view('frontend.hallTickets.show', compact('student'));
     }
 
     public function show(HallTicket $hallTicket)
     {
         //abort_if(Gate::denies('hall_ticket_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $student = Student::where ( 'roll_number', $request->roll_number)->first();
 
-        return view('frontend.hallTickets.show', compact('hallTicket'));
+        return view('frontend.hallTickets.show', compact('student'));
     }
 
     public function destroy(HallTicket $hallTicket)

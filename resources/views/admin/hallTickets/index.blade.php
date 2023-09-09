@@ -29,6 +29,9 @@
                             {{ trans('cruds.hallTicket.fields.roll_number') }}
                         </th>
                         <th>
+                            {{ trans('cruds.hallTicket.fields.count') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -44,6 +47,9 @@
                             </td>
                             <td>
                                 {{ $hallTicket->roll_number ?? '' }}
+                            </td>
+                            <td>
+                                {{ $hallTicket->count ?? '' }}
                             </td>
                             <td>
                                 @can('hall_ticket_show')

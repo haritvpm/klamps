@@ -11,6 +11,7 @@ class CreateHallTicketsTable extends Migration
         Schema::create('hall_tickets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('roll_number');
+            $table->integer('count')->nullable();
             $table->timestamps();
         });
     }

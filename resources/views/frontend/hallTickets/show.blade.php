@@ -12,6 +12,18 @@
        
     
     <style>
+
+h1,h2,h3,h4 {
+  margin-top:2px;
+  margin-bottom:2px;
+}
+
+.font-weight-light{
+    font-weight: light;
+}
+.font-weight-bold{
+    font-weight: bold;
+}
     .text-md {
     font-size: 105%;
     }
@@ -22,7 +34,7 @@
     font-size: 100%;
     }
 
-    .row {
+.row {
   margin-right: -15px;
   margin-left: -15px;
 }
@@ -40,6 +52,11 @@
 .text-center {
   text-align: center;
 }
+
+.text-justify{
+    text-align: justify;
+}
+
 .center {
     display: flex;
     justify-content: center;
@@ -56,8 +73,8 @@
 }
 body {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 12px;
- /* line-height: 1.42857143;  */
+  font-size: 14px;
+  line-height: 1.42857143;  
   color: #333;
   background-color: #fff;
 }
@@ -74,10 +91,13 @@ th, td {
 
 table {
   width: 100%;
-  
+  border-spacing: px;
+
 }
 
-
+.page-break {
+    page-break-after: always;
+}
     </style>
 
 </head>
@@ -91,12 +111,12 @@ table {
         <div >
            
                 <div class="center">
-                    <img src= "./klamps_logo600w.jpg" width = '200px' >
+                    <img src= "./klamps_logo600w.jpg" width = '150px' >
 
-                    <h2 class="text-center font-weight-light">KERALA LEGISLATIVE  ASSEMBLY MEDIA & PARLIAMENTARY STUDY CENTRE</h2>
-                    <h2 class="text-center font-weight-light">CERTIFICATE COURSE IN PARLIAMENTARY PRACTICE AND PROCEDURE</h2>
-                    <h2 class="text-center font-weight-light">EXAMINATION  2023</h2>
-                    <h3 class="text-center font-weight-bold">HALL TICKET</h3>
+                    <h3 class="text-center font-weight-light">KERALA LEGISLATIVE  ASSEMBLY MEDIA & PARLIAMENTARY STUDY CENTRE</h3>
+                    <h3 class="text-center font-weight-light">CERTIFICATE COURSE IN PARLIAMENTARY PRACTICE AND PROCEDURE</h3>
+                    <h4 class="text-center font-weight-light">EXAMINATION  2023</h4>
+                    <h4 class="text-center font-weight-bold">HALL TICKET</h4>
                     
                 </div>
 
@@ -113,16 +133,16 @@ table {
                                     <b>Batch</b>
                                 </td>
                                 <td  >
-                                : {{$hallTicket->getYear()}} <br>
-                                : {{$hallTicket->getBatch()}}
+                                : {{$student->getYear()}} <br>
+                                : {{$student->getBatch()}}
                                 </td>
                                 <td style="text-align:right;" >
                                     <div >
-                                                @if($hallTicket->photo)
-                                                    <img src=".{{ $hallTicket->getPhoto('') }}"  width='80px' style='border:2px solid #000000; padding:3px; margin:5px'>
+                                                @if($student->photo)
+                                                    <img src=".{{ $student->getPhoto('') }}"  width='80px' style='border:2px solid #000000; padding:3px; margin:5px'>
                                                     
                                                 @else
-                                                    <img src= ".{{  $hallTicket->getFallbackPhoto()}}" width='80px' style='border:2px solid #000000; padding:3px; margin:5px'>
+                                                    <img src= ".{{  $student->getFallbackPhoto()}}" width='80px' style='border:2px solid #000000; padding:3px; margin:5px'>
                                                 @endif
                                     </div>
                                 </td>
@@ -141,19 +161,19 @@ table {
                         <tbody>
                             
                             <tr>
-                                <th style="text-align:left;width: 25%;border: 1px solid;" >
+                                <th style="text-align:left;width: 20%;border: 1px solid;" >
                                     {{ trans('cruds.hallTicket.fields.roll_number') }}
                                 </th>
                                 <td class="text-monospace " style="border: 1px solid;" >
-                                    &nbsp;{{ $hallTicket->roll_number }}
+                                    &nbsp;{{ $student->roll_number }}
                                 </td>
                             </tr>
                             <tr>
-                                <th style="text-align:left;width: 25%;border: 1px solid;">
+                                <th style="text-align:left;width: 20%;border: 1px solid;">
                                     {{ trans('cruds.student.fields.name') }}
                                 </th>
                                 <td class="text-monospace " style="border: 1px solid;">
-                                    &nbsp;{{ $hallTicket->name }}
+                                    &nbsp;{{ $student->name }}
                                 </td>
                             </tr>
                         </tbody>
@@ -168,15 +188,15 @@ table {
     
     <div >
         <div >
-                    <div >
-                    <table  class="bordered-table">
+                    <div style="margin-top: 10px;" >
+                    <table   class="bordered-table">
                         <tbody>
                             
                             <tr>
-                                <th  style="text-align:left;width: 25%;border: 1px solid;" rowspan="2">
+                                <th  style="text-align:left;width: 20%;border: 1px solid;" rowspan="2">
                                     Examination
                                 </th>
-                                <td style="width: 15%;border: 1px solid;">
+                                <td style="width: 8%;border: 1px solid;">
                                     Date
                                 </td>
                                 <td style="border: 1px solid;">
@@ -185,7 +205,7 @@ table {
                             </tr>
                             <tr>
                               
-                                <td style="width: 15%">
+                                <td style="width: 8%">
                                     Time
                                 </td>
                                 <td style="border: 1px solid;">
@@ -198,7 +218,7 @@ table {
                                     Center of Examination
                                 </th>
                                 <td style="border: 1px solid;">
-                                    {{ $hallTicket->centre }}
+                                    {{ $student->centre }}
                                 </td>
                             </tr>
                         </tbody>
@@ -233,16 +253,26 @@ table {
         
         <li>Examinees will be allowed to appear for the examination only on production of the <b>identity card</b> and <b>hall ticket</b> issued by the Kerala Legislative Assembly Media and Parliamentary Study Centre.</li>
         <li>Mobile phones and other electronic devices which can be used for collection and storage of data/information are not permitted in the Examination Hall.</li>
+                    
+
+        </ol>
         
+        <div style="text-align:right;">
+            P.T.O
+        </div>
+        <div class="page-break"></div>
+
+        <ol type="1" start="5" class="text-justify text-md">
         <li>Examinees shall not  leave the Examination Hall without the permission of the Invigilator.</li>
-            
+
         <li>There shall not be an overwriting in the Enrolment Number and if there is any correction, it should be attested by the Invigilator.</li>
-            
+
         <li>No examinee shall be permitted to leave the examination hall earlier than one hour before the completion time of the examination. </li>
             
         <li>If a person impersonates a candidate, he / she shall be reported to police and the examinee who is impersonated shall be disqualified from appearing any K-LAMPS (PS) Exam for 5 years.</li>
             
         <li>If an examinee is found talking to another examinee or person inside or outside the examination hall without permission, even after being warned, his/her answer book for that particular paper shall be cancelled. </li>
+                 
             
         <li>If an examinee receives or attempts to receive help from any source, including consulting books, notes or papers, or any other matter outside the exam hall, or has given help or attempted to give help, his/her answer book for that particular paper shall be cancelled.</li>
             
@@ -254,6 +284,8 @@ table {
     
         <li>The decision of the Kerala Legislative Assembly Media and Parliamentary Study Centre shall be final on all matters regarding the conduct of the examination.</li>
        </ol>
+      
+
        <div class="font-weight-bold text-center"> * * *</div>
     </div>
 

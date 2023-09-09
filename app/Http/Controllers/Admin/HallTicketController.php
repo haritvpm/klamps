@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyHallTicketRequest;
 use App\Http\Requests\StoreHallTicketRequest;
+use App\Models\Student;
 use App\Models\HallTicket;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use PDF;
 
 class HallTicketController extends Controller
 {
@@ -39,7 +41,13 @@ class HallTicketController extends Controller
     {
         abort_if(Gate::denies('hall_ticket_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.hallTickets.show', compact('hallTicket'));
+      //  return view('admin.hallTickets.show', compact('hallTicket'));
+
+      $student = Student::where ( 'roll_number', $hallTicket->roll_number)->first();
+      $pdf = PDF::loadView('frontend.hallTickets.show', compact('student'));
+                 
+      return $pdf->download('hallticket2023.pdf');
+     // return view('frontend.hallTickets.show', compact('student'));
     }
 
     public function destroy(HallTicket $hallTicket)
