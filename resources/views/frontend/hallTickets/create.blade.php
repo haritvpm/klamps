@@ -46,9 +46,10 @@
                             <span class="help-block">{{ trans('cruds.hallTicket.fields.roll_number_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-danger" type="submit">
-                                Download
-                            </button>
+                          
+                            <button class="btn btn-danger" type="submit" name="action" value="download">Download</button>
+                            <button class="btn btn-info" type="submit" name="action" value="view">View</button>
+
                         </div>
                     </form>
                 </div>

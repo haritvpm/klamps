@@ -24,6 +24,7 @@ h1,h2,h3,h4 {
 .font-weight-bold{
     font-weight: bold;
 }
+    
     .text-md {
     font-size: 105%;
     }
@@ -33,9 +34,10 @@ h1,h2,h3,h4 {
     .text-110 {
     font-size: 100%;
     }
+    
 
 .row {
-  margin-right: -15px;
+  //*margin-right: -15px;*/
   margin-left: -15px;
 }
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
@@ -71,6 +73,11 @@ h1,h2,h3,h4 {
 .align-right{
     text-align:right;
 }
+
+.text-monospace{
+  /* font-family: monospace;*/
+}
+
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -98,6 +105,11 @@ table {
 .page-break {
     page-break-after: always;
 }
+
+ol{
+    line-height:180%;
+}
+
     </style>
 
 </head>
@@ -164,15 +176,15 @@ table {
                                 <th style="text-align:left;width: 20%;border: 1px solid;" >
                                     {{ trans('cruds.hallTicket.fields.roll_number') }}
                                 </th>
-                                <td class="text-monospace " style="border: 1px solid;" >
-                                    &nbsp;{{ $student->roll_number }}
+                                <td class="text-monospace  text-md " style="border: 1px solid;" >
+                                    &nbsp;{{ $rollno_formatted }}
                                 </td>
                             </tr>
                             <tr>
                                 <th style="text-align:left;width: 20%;border: 1px solid;">
                                     {{ trans('cruds.student.fields.name') }}
                                 </th>
-                                <td class="text-monospace " style="border: 1px solid;">
+                                <td class="text-monospace  text-md" style="border: 1px solid;">
                                     &nbsp;{{ $student->name }}
                                 </td>
                             </tr>
@@ -196,7 +208,7 @@ table {
                                 <th  style="text-align:left;width: 20%;border: 1px solid;" rowspan="2">
                                     Examination
                                 </th>
-                                <td style="width: 8%;border: 1px solid;">
+                                <td class="align-middle" style="width: 8%;border: 1px solid;">
                                     Date
                                 </td>
                                 <td style="border: 1px solid;">
@@ -205,7 +217,7 @@ table {
                             </tr>
                             <tr>
                               
-                                <td style="width: 8%">
+                                <td class="align-middle" style="width: 8%">
                                     Time
                                 </td>
                                 <td style="border: 1px solid;">
@@ -243,10 +255,11 @@ table {
     </div>
     
 <hr>
-    <div class="row text-md">
-        <div class="col-md-12 mx-5">
-       <div class="font-weight-bold text-center text-md"> Instructions to  Learners</div><br>
-       <ol type="1" class="text-justify text-md">
+    <div class="row">
+       <div>
+       <ol type="1" class="text-justify">
+       <div class="font-weight-bold text-center"> Instructions to  Learners</div><br>
+
         <li>Examinees shall report at the Examination Hall at least half an hour before  commencement of the Examination.</li>
         
         <li>Examinees shall strictly follow the instructions of the Invigilator  during the examination.</li>
@@ -262,7 +275,7 @@ table {
         </div>
         <div class="page-break"></div>
 
-        <ol type="1" start="5" class="text-justify text-md">
+        <ol type="1" start="5" class="text-justify">
         <li>Examinees shall not  leave the Examination Hall without the permission of the Invigilator.</li>
 
         <li>There shall not be an overwriting in the Enrolment Number and if there is any correction, it should be attested by the Invigilator.</li>

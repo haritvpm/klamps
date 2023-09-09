@@ -44,9 +44,15 @@ class HallTicketController extends Controller
       //  return view('admin.hallTickets.show', compact('hallTicket'));
 
       $student = Student::where ( 'roll_number', $hallTicket->roll_number)->first();
-      $pdf = PDF::loadView('frontend.hallTickets.show', compact('student'));
+
+      $rollno_formatted = substr_replace($hallTicket->roll_number, " ", 4, 0);
+      $rollno_formatted = substr_replace($rollno_formatted, " ", 7, 0);
+      $rollno_formatted = substr_replace($rollno_formatted, " ", 10, 0);
+
+
+      $pdf = PDF::loadView('frontend.hallTickets.show', compact('student', 'rollno_formatted'));
                  
-      return $pdf->download('hallticket2023.pdf');
+      return $pdf->stream( $student->roll_number . '_hallticket.pdf');
      // return view('frontend.hallTickets.show', compact('student'));
     }
 

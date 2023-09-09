@@ -23,13 +23,14 @@
 
                         </th>
                         <th>
-                            {{ trans('cruds.hallTicket.fields.id') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.hallTicket.fields.roll_number') }}
                         </th>
+                        
                         <th>
-                            {{ trans('cruds.hallTicket.fields.count') }}
+                            Downloaded
+                        </th>
+                        <th>
+                            Date
                         </th>
                         <th>
                             &nbsp;
@@ -43,13 +44,13 @@
 
                             </td>
                             <td>
-                                {{ $hallTicket->id ?? '' }}
+                               {{ $hallTicket->roll_number ?? '' }}
                             </td>
                             <td>
-                                {{ $hallTicket->roll_number ?? '' }}
+                            {{ $hallTicket->count ?? '' }}
                             </td>
                             <td>
-                                {{ $hallTicket->count ?? '' }}
+                            {{ $hallTicket->updated_at->toDateString() ?? '' }}
                             </td>
                             <td>
                                 @can('hall_ticket_show')
