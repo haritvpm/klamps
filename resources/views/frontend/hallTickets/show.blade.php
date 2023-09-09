@@ -248,7 +248,8 @@ ol{
         </div>
         <div style="text-align:right;">
             <div class="text-right font-weight-bold">
-            <br><br><br>Joint Director,
+            <img src= "./sigjpg" width = '90px' >
+            <br>Joint Director,
             <br>K-LAMPS (PS)
             </div>
         </div>
