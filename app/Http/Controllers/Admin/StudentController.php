@@ -113,4 +113,26 @@ class StudentController extends Controller
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
+
+    public function uploadPhotos(Request $request)
+    {
+       /*  $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        ]); */
+        $path = storage_path('app/public');
+       // dd($request);
+
+       if($files = $request->file('images')){
+          
+            foreach($files as $file) {
+              
+                $name = trim($file->getClientOriginalName());
+                $file->move($path, $name);
+            }
+        }
+       
+        return redirect()->back()->with('message', 'Image(s) successfully uploaded.');;
+
+    }
+
 }

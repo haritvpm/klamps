@@ -12,6 +12,30 @@
             @include('csvImport.modal', ['model' => 'Student', 'route' => 'admin.students.parseCsvImport'])
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+              
+                <div class="card-body">
+                    <form method="POST" action="{{ route('admin.students.uploadPhotos') }}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label>Choose Photos (300x400, jpg)</label>
+                            <input type="file"  name="images[]" multiple>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-danger" type="submit">
+                                Upload
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+
 @endcan
 <div class="card">
     <div class="card-header">

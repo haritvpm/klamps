@@ -8,6 +8,7 @@
             </a>
         </div>
     </div>
+
 @endcan
 <div class="card">
     <div class="card-header">
