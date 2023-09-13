@@ -230,7 +230,7 @@ ol{
                                     Center of Examination
                                 </th>
                                 <td style="border: 1px solid;">
-                                    {{ $student->centre }}
+                                    {{ App\Models\Student::CENTRE_SELECT[$student->centre] ?? '' }}
                                 </td>
                             </tr>
                         </tbody>

@@ -13,6 +13,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
+use PDF;
 
 class StudentController extends Controller
 {
@@ -75,13 +76,30 @@ class StudentController extends Controller
         return redirect()->route('admin.students.index');
     }
 
+    
     public function show(Student $student)
     {
         abort_if(Gate::denies('student_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('admin.students.show', compact('student'));
     }
-
+    public function showHallTicket(Request $request, string $id)
+    {
+        abort_if(Gate::denies('student_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+       ;
+        //dd($id);
+        $student = Student::findOrFail($id);
+       
+        $rollno_formatted = substr_replace($student->roll_number, " ", 4, 0);
+        $rollno_formatted = substr_replace($rollno_formatted, " ", 7, 0);
+        $rollno_formatted = substr_replace($rollno_formatted, " ", 10, 0);
+  
+  
+        $pdf = PDF::loadView('frontend.hallTickets.show', compact('student', 'rollno_formatted'));
+                   
+        return $pdf->stream( $student->roll_number . '_hallticket.pdf');
+        
+    }
     public function destroy(Student $student)
     {
         abort_if(Gate::denies('student_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');

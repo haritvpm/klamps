@@ -110,7 +110,10 @@
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.students.show', $student->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
-                                  
+                                    <a class="btn btn-xs btn-success" href="{{ route('admin.students.showHallTicket', $student->id) }}">
+                                        HT
+                                    </a>
+                                    
                                 @endcan
 
                                 @can('student_edit')

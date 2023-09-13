@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('hall-tickets', 'HallTicketController', ['except' => ['edit', 'update']]);
 
     // Student
+    Route::get('students/hall-ticket/{id}', 'StudentController@showHallTicket')->name('students.showHallTicket');
     Route::post('students/uploadphotos', 'StudentController@uploadPhotos')->name('students.uploadPhotos');
     Route::delete('students/destroy', 'StudentController@massDestroy')->name('students.massDestroy');
     Route::post('students/media', 'StudentController@storeMedia')->name('students.storeMedia');
