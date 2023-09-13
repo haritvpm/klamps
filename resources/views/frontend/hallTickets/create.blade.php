@@ -36,7 +36,7 @@
                         @method('POST')
                         @csrf
                         <div class="form-group">
-                            <label class="required" for="roll_number">{{ trans('cruds.hallTicket.fields.roll_number') }}</label>
+                            <label class="required" for="roll_number">{{ trans('cruds.hallTicket.fields.roll_number') }} (11 digits)</label>
                             <input class="form-control" type="text" pattern="^\S+$" name="roll_number" id="roll_number" value="{{ old('roll_number', '') }}" required>
                             @if($errors->has('roll_number'))
                                 <div class="invalid-feedback">

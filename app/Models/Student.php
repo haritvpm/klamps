@@ -31,9 +31,9 @@ class Student extends Model implements HasMedia
     ];
 
     public const CENTRE_SELECT = [
-        'Trivandrum' => 'Trivandrum',
-        'Kochi' => 'Kochi',
-        'Kozhikode' => 'Kozhikode',
+        'TVM' => 'SMV GMHSS, Thampanoor, Thiruvananthapuram',
+        'EKM' => 'GGHSS, Chittoor road, Ernakulam',
+        'KKD' => 'GVGHSS, Nadakkavu, Kozhikode',
     ];
 
     protected $fillable = [

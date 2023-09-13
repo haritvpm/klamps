@@ -21,7 +21,7 @@
                     <form method="POST" action="{{ route('admin.students.uploadPhotos') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label>Choose Photos (300x400, jpg)</label>
+                            <label>Choose Photos (300x400, jpg) upload 20 at a time </label>
                             <input type="file"  name="images[]" multiple>
                         </div>
                         <div class="form-group">
@@ -110,6 +110,7 @@
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.students.show', $student->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
+                                  
                                 @endcan
 
                                 @can('student_edit')

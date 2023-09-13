@@ -127,7 +127,9 @@ class StudentController extends Controller
             foreach($files as $file) {
               
                 $name = trim($file->getClientOriginalName());
+                $name = str_replace(' ', '', $name);
                 $file->move($path, $name);
+              //$file->storeAs($path, $name); 
             }
         }
        

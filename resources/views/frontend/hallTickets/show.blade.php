@@ -248,7 +248,7 @@ ol{
         </div>
         <div style="text-align:right;">
             <div class="text-right font-weight-bold">
-            <img src= "./sigjpg" width = '90px' >
+            <img src= "./sig.png" width = '100px' >
             <br>Joint Director,
             <br>K-LAMPS (PS)
             </div>
