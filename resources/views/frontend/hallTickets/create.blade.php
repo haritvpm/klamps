@@ -6,8 +6,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    {{ trans('cruds.hallTicket.title_singular') }}
-                </div>
+                <h6 class="text-center font-weight-light">KERALA LEGISLATIVE  ASSEMBLY MEDIA & PARLIAMENTARY STUDY CENTRE</h6>
+                    <h6 class="text-center font-weight-light">CERTIFICATE COURSE IN PARLIAMENTARY PRACTICE AND PROCEDURE</h6>
+                   <h4 class="text-center">{{ trans('cruds.hallTicket.title_singular') }}</h4> 
 
                 <div class="card-body">
 
