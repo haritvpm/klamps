@@ -205,7 +205,7 @@ ol{
                         <tbody>
                             
                             <tr>
-                                <th  style="text-align:left;width: 20%;border: 1px solid;" rowspan="2">
+                                <th  style="text-align:left;width: 20%;border: 1px solid;" rowspan="3">
                                     Examination
                                 </th>
                                 <td class="align-middle" style="width: 8%;border: 1px solid;">
@@ -226,9 +226,9 @@ ol{
                             </tr>
 
                             <tr>
-                                <th style="text-align:left;border: 1px solid;" colspan="2">
-                                    Center of Examination
-                                </th>
+                                <td style="text-align:left;border: 1px solid;">
+                                    Centre
+                                </td>
                                 <td style="border: 1px solid;">
                                     {{ App\Models\Student::CENTRE_SELECT[$student->centre] ?? '' }}
                                 </td>

@@ -57,16 +57,7 @@
                 </ul>
             </li>
         @endcan
-        @can('hall_ticket_access')
-           <!--  <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.hall-tickets.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/hall-tickets") || request()->is("admin/hall-tickets/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-ticket-alt c-sidebar-nav-icon">
-
-                    </i>
-                    {{ trans('cruds.hallTicket.title') }}
-                </a>
-            </li> -->
-        @endcan
+        
         @can('student_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.students.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/students") || request()->is("admin/students/*") ? "c-active" : "" }}">
